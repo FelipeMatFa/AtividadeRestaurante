@@ -1,0 +1,27 @@
+.div-restaurante{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.div-restaurante_restaurantes{
+    display: flex;
+    flex-direction: row;
+    margin: 2vh 10vh;
+    padding: 10vh 10vh;
+    border-radius: 10px;
+    border: 2px solid black;
+}
+
+#foto-restaurante{
+    height: 20vh;
+    margin-right: 4vh;
+}
+
+.restaurantes_info{
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    /* border: 1px solid black; */
+    width: 50vw;
+}
