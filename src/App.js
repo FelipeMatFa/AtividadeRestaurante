@@ -6,10 +6,13 @@ import React, { useState } from 'react';
 function App() {
   const [restaurantes, setRestaurantes] = useState([
     {
+      id: 1,
       nome: "Restaurante universitário",
       descricao: "Restaurante para universitários"
     },
   ]);
+
+  console.log(restaurantes);
 
   const adicionarRestaurante = (novoRestaurante) => {
     setRestaurantes([...restaurantes, novoRestaurante]);
@@ -20,6 +23,7 @@ function App() {
       <h1>Lista de Restaurantes</h1>
       <AdicionarLugares
         adicionarRestaurante={adicionarRestaurante}
+        tamanho = {restaurantes.length}
       />
       <ListarRestaurantes
         lista={restaurantes}

@@ -1,7 +1,7 @@
-import React, { useRef } from 'react';
+import React, {useRef} from 'react';
 import '../style.css';
 
-function AdicionarLugares({ adicionarRestaurante }) {
+function AdicionarLugares({adicionarRestaurante, tamanho}) {
     const nomeL = useRef(null);
     const descricaoL = useRef(null);
 
@@ -11,6 +11,7 @@ function AdicionarLugares({ adicionarRestaurante }) {
         const descricao = descricaoL.current.value;
 
         adicionarRestaurante({ 
+            id: tamanho + 1,
             nome: nome, 
             descricao: descricao 
         });
