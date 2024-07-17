@@ -25,3 +25,34 @@
     /* border: 1px solid black; */
     width: 50vw;
 }
+
+/* ---- FORMULARIO ---- */
+.formulario{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 5vh 5vw;
+    padding: 10vh 4vw;
+    border-radius: 10px;
+    background-color: rgb(62, 3, 134);
+    gap: 10px;
+}
+
+#formulario_nome{
+    padding: 1vh;
+    font-size: 20px;
+}
+
+#formulario_descricao{
+    height: 20vh;
+    text-align: start;
+    font-size: 20px;
+}
+
+#formulario_button{
+    padding: 2vh;
+    font-size: 20px;
+    background-color: black;
+    border: none;
+    color: aliceblue;
+}
