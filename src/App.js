@@ -27,6 +27,7 @@ function App() {
       />
       <ListarRestaurantes
         lista={restaurantes}
+        setRestaurantes={setRestaurantes}
       />
     </div>
   );

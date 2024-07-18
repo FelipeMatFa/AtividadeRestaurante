@@ -1,12 +1,17 @@
 import foto from '../restaurante.png';
 import '../style.css'
 
-function ListarRestaurantes({lista}){
+function ListarRestaurantes({lista, setRestaurantes}){
 
-  function remover(id) {
-    // lista.splice(id-1)
-    // lista.splice(id-1)
+  const removerItem = (id) =>{
+    const index = lista.findIndex(restaurante => restaurante.id === id);
+    
+    if (index !== -1) {
+      const novaLista = lista.filter(restaurante => restaurante.id !== id);
+      setRestaurantes(novaLista);
+    }
   }
+
 
   return(
     <div className='div-restaurante'>
@@ -20,7 +25,7 @@ function ListarRestaurantes({lista}){
               <p key={restaurante.descricao}>
                 {restaurante.descricao}
               </p>
-              <button onClick={remover(restaurante.id)}>X</button>
+              <button onClick={() => removerItem(restaurante.id)}>X</button>
             </div>
             
           </section>
