@@ -19,15 +19,14 @@ function ListarRestaurantes({lista, setRestaurantes}){
           <section key={restaurante.id} className='div-restaurante_restaurantes'>
             <img id='foto-restaurante' src={foto}/>
             <div className='restaurantes_info'>
-              <p key={restaurante.nome}>
+              <p id="restaurantes_info_paragrafo-titulo" key={restaurante.nome}>
                 {restaurante.nome}
               </p>
-              <p key={restaurante.descricao}>
+              <p id="restaurantes_info_paragrafo-descricao" key={restaurante.descricao}>
                 {restaurante.descricao}
               </p>
-              <button onClick={() => removerItem(restaurante.id)}>X</button>
             </div>
-            
+            <button id='button-excluir' onClick={() => removerItem(restaurante.id)}>X</button>
           </section>
       ))}
     </div>
