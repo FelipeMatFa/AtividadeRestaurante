@@ -83,7 +83,6 @@ function App() {
 * O `useState` está sendo utilizado para armazenar valores em lista no formato de objetos que serão atualizados e incrementados utilizando a função `setRestaurantes`
 
 ```
-(continuação)
 ...
 
 const adicionarRestaurante = (novoRestaurante) => {
@@ -146,3 +145,83 @@ function AdicionarLugares({adicionarRestaurante, tamanho}) {
 * Linha 5 e 6: Está sendo criado duas constantes que recebem um useRef que recebe o valor DOM do formulario do arquivo sem atualizar a página;
 * Linha 13 a 17: Está sendo criado um novo objeto para a lista, passando um id que leva em conta o tamanho da lista + 1 para que o id não se repita, um nome e uma descricao que recebem as constantes de mesmo nome que recebe values dos inputs;
 * Linha 19 e 20: Está sendo limpo os campos de input.
+
+```
+...
+
+    return (
+        <form className="formulario">
+            <input
+                id="formulario_nome"
+                type="text"
+                placeholder="Nome do local"
+                ref={nomeL}
+            />
+            <input
+                id="formulario_descricao"
+                type="text"
+                placeholder="Descrição do local"
+                ref={descricaoL}
+            />
+            <button
+                id="formulario_button"
+                onClick={click}
+            >Adicione a sua lista</button>
+        </form>
+    );
+}
+
+export default AdicionarLugares;
+```
+
+### Arquivo ListarRestaurantes.jsx
+
+No arquivo `ListarRestaurantes.jsx` na linha 1 e 2 nós importamos um arquivo de imagem e um arquivo css chamado `style.css`.
+
+```
+import foto from '../restaurante.png';
+import '../style.css'
+
+function ListarRestaurantes({lista, setRestaurantes}){
+
+  const removerItem = (id) =>{
+    const index = lista.findIndex(restaurante => restaurante.id === id);
+    
+    if (index !== -1) {
+      const novaLista = lista.filter(restaurante => restaurante.id !== id);
+      setRestaurantes(novaLista);
+    }
+  }
+
+...
+```
+* Linha 3: Recebemos como paramentro na função a `lista` dos restaurantes e a função `setRestaurantes`;
+* Linha 7: A constante index está recebendo a posição de um elemento da lista passando um paramentro que usa como base o id do restaurante;
+* Linha 9: Está sendo verificado se o index é diferente de -1;
+* Linha 10 e 11: Está sendo criado o `novaLista` que recebe um valor filtrado da lista seguindo a regra de que o id do restaurante deve ter o elemento sem id excluido da lista, então nós passamos a lista atualizada para a variavel `restaurantes`.
+
+```
+return(
+    <div className='div-restaurante'>
+      {lista.map(restaurante => (
+          <section key={restaurante.id} className='div-restaurante_restaurantes'>
+            <img id='foto-restaurante' src={foto}/>
+            <div className='restaurantes_info'>
+              <p id="restaurantes_info_paragrafo-titulo" key={restaurante.nome}>
+                {restaurante.nome}
+              </p>
+              <p id="restaurantes_info_paragrafo-descricao" key={restaurante.descricao}>
+                {restaurante.descricao}
+              </p>
+            </div>
+            <button id='button-excluir' onClick={() => removerItem(restaurante.id)}>X</button>
+          </section>
+      ))}
+    </div>
+
+  )
+}
+
+export default ListarRestaurantes;
+```
+* O lista.map está listando todos os elementos da lista `restaurantes` do arquivo `App.js` na tela do usuário.
