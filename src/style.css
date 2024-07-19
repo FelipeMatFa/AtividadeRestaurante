@@ -1,43 +1,39 @@
-body{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .div-restaurante{
     display: flex;
     flex-direction: column;
     gap: 20px;
-    width: 85vw;
+    width: 70vw;
 }
 
 .div-restaurante_restaurantes{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 10vh 10vh;
+    padding: 8vh 10vh;
     border-radius: 10px;
     border: 2px solid black;
 }
 
 #restaurantes_info_paragrafo-titulo{
-    font-size: 22px;
+    font-size: 24px;
     font-weight: 600;
-    width: 55vw;
+    width: 40vw;
 }
 
 #restaurantes_info_paragrafo-descricao{
-    font-size: 14px;
+    font-size: 16px;
+    width: 40vw;
 }
 
 #button-excluir{
-    border-radius: 40px;
-    height: 5vh;
-    width: 2.5vw;
+    border-radius: 50px;
+    height: 7vh;
+    width: 3.5vw;
     border: none;
     background-color: red;
     color: aliceblue;
     font-weight: 600;
+    font-size: 22px;
 }
 
 #foto-restaurante{
@@ -56,27 +52,28 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    width: 80vw;
-    padding: 10vh 4vw;
-    border-radius: 10px;
-    background-color: rgb(62, 3, 134);
+    width: 75vw;
     gap: 10px;
-    margin: 4vh;
+    margin: 6vh;
 }
 
 #formulario_nome{
-    padding: 1vh;
-    font-size: 20px;
+    padding: 3vh;
+    font-size: 22px;
+    border: 1px solid black;
 }
 
 #formulario_descricao{
     height: 20vh;
-    font-size: 20px;
+    font-size: 22px;
+    padding: 3vh;
+    border: 1px solid black;
 }
 
 #formulario_button{
-    padding: 3vh;
-    font-size: 20px;
+    padding: 3.5vh;
+    font-size: 22px;
+    border-radius: 10px;
     background-color: black;
     border: none;
     color: aliceblue;
@@ -84,50 +81,163 @@ body{
 
 @media (min-width: 375px) and (max-width: 770px){
     .formulario{
-        padding: 6vh 6vw;
-        gap: 10px;
+        width: 75vw;
+        margin: 4vh;
     }
     
     #formulario_nome{
-        font-size: 14px;
+        padding: 3vh;
+        font-size: 16px;
+    }
+    
+    #formulario_descricao{
+        height: 13vh;
+        font-size: 16px;
+        padding: 3vh;
+    }
+    
+    #formulario_button{
+        padding: 2.5vh;
+        font-size: 16px;
+        border-radius: 5px;
+    }
+
+    .div-restaurante{
+        width: 70vw;
+    }
+    
+    .div-restaurante_restaurantes{
+        padding: 2vh 2vh;
+        border-radius: 10px;
+    }
+    
+    #restaurantes_info_paragrafo-titulo{
+        font-size: 12px;
+        font-weight: 700;
+        width: 40vw;
+    }
+    
+    #restaurantes_info_paragrafo-descricao{
+        font-size: 10px;
+        width: 40vw;
+    }
+    
+    #button-excluir{
+        border-radius: 50px;
+        height: 3.5vh;
+        width: 6vw;
+    }
+    
+    #foto-restaurante{
+        height: 6vh;
+    }
+}
+
+@media (min-width: 771px) and (max-width: 900px){
+    .formulario{
+        width: 75vw;
+        gap: 18px;
+    }
+    
+    #formulario_nome{
+        padding: 3vh;
+        font-size: 18px;
+    }
+    
+    #formulario_descricao{
+        height: 15vh;
+        font-size: 18px;
+        padding: 3vh;
+    }
+    
+    #formulario_button{
+        padding: 2.7vh;
+        font-size: 18px;
+        border-radius: 5px;
+    }
+
+    .div-restaurante{
+        width: 70vw;
+    }
+    
+    .div-restaurante_restaurantes{
+        padding: 3vh 4vh;
+        border-radius: 10px;
+    }
+    
+    #restaurantes_info_paragrafo-titulo{
+        font-size: 16px;
+        font-weight: 600;
+        width: 40vw;
+    }
+    
+    #restaurantes_info_paragrafo-descricao{
+        font-size: 12px;
+        width: 43vw;
+    }
+    
+    #button-excluir{
+        border-radius: 50px;
+        height: 4.5vh;
+        width: 5vw;
+    }
+    
+    #foto-restaurante{
+        height: 8vh;
+    }
+}
+
+@media (min-width: 901px) and (max-width: 1400px){
+    .formulario{
+        width: 80vw;
+        gap: 20px;
+    }
+    
+    #formulario_nome{
+        padding: 3vh;
+        font-size: 20px;
     }
     
     #formulario_descricao{
         height: 20vh;
-        font-size: 14px;
+        font-size: 20px;
+        padding: 3vh;
     }
     
     #formulario_button{
-        padding: 2vh;
-        font-size: 14px;
+        padding: 3.5vh;
+        font-size: 20px;
+        border-radius: 5px;
     }
 
-    /* ------ Elementos ------- */
     .div-restaurante{
-        display: flex;
-        flex-direction: column;
-        width: 100%;
+        width: 75vw;
     }
     
     .div-restaurante_restaurantes{
-        margin: 2vh 4vh;
-        padding: 2vh 4vh;
-        border: 1.5px solid black;
+        padding: 4vh 4vh;
+        border-radius: 10px;
+    }
+    
+    #restaurantes_info_paragrafo-titulo{
+        font-size: 20px;
+        font-weight: 600;
+        width: 45vw;
+    }
+    
+    #restaurantes_info_paragrafo-descricao{
+        font-size: 16px;
+        width: 43vw;
+    }
+    
+    #button-excluir{
+        border-radius: 50px;
+        height: 5.5vh;
+        width: 5vw;
+        font-size: 20px;
     }
     
     #foto-restaurante{
-        height: 10vh;
-        margin-right: 3vw;
-    }
-    
-    .restaurantes_info{
-        display: flex;
-        flex-direction: column;
-        align-items: start;
-        text-align: start;
-        width: 100vw;
-    }
-    .restaurantes_info p{
-        font-size: 10px;
+        height: 12vh;
     }
 }
