@@ -1,6 +1,6 @@
 # Documentação de projeto em React
 
-Esse projeto foi desenvolvido com [React](https://github.com/facebook/create-react-app).
+Esse projeto foi desenvolvido usando [React](https://github.com/facebook/create-react-app) com base na temática de Lista de restaurantes para visitar.
 
 ## Primeiros comandos
 
@@ -16,48 +16,7 @@ Caso você apenas faça clone desse projeto você deve executar o comando abaixo
 npm i
 ```
 
-## Componentes
-
-Crie uma pasta dentro da pasta `SRC`, chamando ela de components, e dentro dessa pasta criada você pode criar os seus componentes colocando `nome_do_componente.jsx` ou digite o comando abaixo
-
-```
-mkdir src/components
-```
-```
-touch src/components/Nome_do_componente.jsx
-```
-
-### Estrutura dos components
-
-Para mandar um retorno para a tela do usuário você deve seguir a seguinte estrutura abaixo:
-```
-function Meu_componente() {
-
-    return (
-        <div>
-            <h1>Olá mundo!</h1>
-        </div>
-    );
-}
-
-export default Meu_componente;
-```
-Então no arquivo App.js coloque:
-```
-import './App.css';
-import Meu_componente from './components/Nome_do_componente';
-
-function App() {
-  return (
-    <Meu_componente />
-  );
-}
-
-export default App;
-
-```
-
-## Como o projeto foi feito
+## Programando o projeto
 
 ### Arquivo App.js
 
