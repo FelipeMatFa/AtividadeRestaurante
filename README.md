@@ -1,70 +1,148 @@
-# Getting Started with Create React App
+# Documentação de projeto em React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Esse projeto foi desenvolvido com [React](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Primeiros comandos
 
-In the project directory, you can run:
+Para criar um projeto React:
 
-### `npm start`
+```
+npx create-react-app nome_do_projeto
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Caso você apenas faça clone desse projeto você deve executar o comando abaixo:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```
+npm i
+```
 
-### `npm test`
+## Componentes
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Crie uma pasta dentro da pasta `SRC`, chamando ela de components, e dentro dessa pasta criada você pode criar os seus componentes colocando `nome_do_componente.jsx` ou digite o comando abaixo
 
-### `npm run build`
+```
+mkdir src/components
+```
+```
+touch src/components/Nome_do_componente.jsx
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Estrutura dos components
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Para mandar um retorno para a tela do usuário você deve seguir a seguinte estrutura abaixo:
+```
+function Meu_componente() {
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    return (
+        <div>
+            <h1>Olá mundo!</h1>
+        </div>
+    );
+}
 
-### `npm run eject`
+export default Meu_componente;
+```
+Então no arquivo App.js coloque:
+```
+import './App.css';
+import Meu_componente from './components/Nome_do_componente';
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+function App() {
+  return (
+    <Meu_componente />
+  );
+}
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+export default App;
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Como o projeto foi feito
 
-## Learn More
+### Arquivo App.js
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+No arquivo `App.js` na linha 2 e 3 nós importamos os componentes criados e o React, mais necessariamente o useState
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+import './App.css';
+import AdicionarLugares from './components/Formulario';
+import ListarRestaurantes from './components/ListarRestaurantes';
+import React, { useState } from 'react';
 
-### Code Splitting
+function App() {
+  const [restaurantes, setRestaurantes] = useState([
+    {
+      id: 1,
+      nome: "Restaurante universitário",
+      descricao: "Restaurante para universitários"
+    },
+  ]);
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+...
+```
+* O `useState` está sendo utilizado para armazenar valores em lista no formato de objetos que serão atualizados e incrementados utilizando a função `setRestaurantes`
 
-### Analyzing the Bundle Size
+```
+(continuação)
+...
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+const adicionarRestaurante = (novoRestaurante) => {
+    setRestaurantes([...restaurantes, novoRestaurante]);
+  };
 
-### Making a Progressive Web App
+  return (
+    <div className="App">
+      <h1>Lista de Restaurantes</h1>
+      <AdicionarLugares
+        adicionarRestaurante={adicionarRestaurante}
+        tamanho = {restaurantes.length}
+      />
+      <ListarRestaurantes
+        lista={restaurantes}
+        setRestaurantes={setRestaurantes}
+      />
+    </div>
+  );
+}
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+export default App;
+```
 
-### Advanced Configuration
+* A função `adicionarRestaurante` está recebendo como parametro o `novoRestaurante` que está adicionando valor a lista com base nos valores que já existem (os objetos) e adicionando o `novoRestaurante`, que recebe um valor que está sendo passado dentro de um dos componentes do projeto;
+* Linha 23: Está sendo passado a função `novoRestaurante` para o componente `Formulario.jsx`;
+* Linha 24: Está sendo passado o tamando da lista de restaurantes;
+* Linha 27 e 28: Está sendo passado a lista `restaurantes` e a função ``setRestaurantes`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Arquivo Formulario.jsx
 
-### Deployment
+No arquivo `Formulario.jsx` na linha 1 e 2 nós importamos o componente useRef e o arquivo css `style.css`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```
+import React, {useRef} from 'react';
+import '../style.css';
 
-### `npm run build` fails to minify
+function AdicionarLugares({adicionarRestaurante, tamanho}) {
+    const nomeL = useRef(null);
+    const descricaoL = useRef(null);
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    const click = (e) => {
+        e.preventDefault();
+        const nome = nomeL.current.value;
+        const descricao = descricaoL.current.value;
+
+        adicionarRestaurante({ 
+            id: tamanho + 1,
+            nome: nome, 
+            descricao: descricao 
+        });
+
+        nomeL.current.value = '';
+        descricaoL.current.value = '';
+    };
+
+...
+```
+* Linha 4: Está sendo recebido dois parametros por meio de objetos que tinham sido enviados no arquivo `App.js`;
+* Linha 5 e 6: Está sendo criado duas constantes que recebem um useRef que recebe o valor DOM do formulario do arquivo sem atualizar a página;
+* Linha 13 a 17: Está sendo criado um novo objeto para a lista, passando um id que leva em conta o tamanho da lista + 1 para que o id não se repita, um nome e uma descricao que recebem as constantes de mesmo nome que recebe values dos inputs;
+* Linha 19 e 20: Está sendo limpo os campos de input.

@@ -12,8 +12,6 @@ function App() {
     },
   ]);
 
-  console.log(restaurantes);
-
   const adicionarRestaurante = (novoRestaurante) => {
     setRestaurantes([...restaurantes, novoRestaurante]);
   };
